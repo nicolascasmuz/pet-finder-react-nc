@@ -60,7 +60,7 @@ export function HeaderMenuComp({ profilePic }) {
           <Link to="/map" className="header__option">
             Mapa
           </Link>
-          <Link to="/main" className="header__option-log-out" ref={logOutRef}>
+          <Link to="/" className="header__option-log-out" ref={logOutRef}>
             Cerrar sesión
           </Link>
         </li>

@@ -31,7 +31,7 @@ export const indexRouter = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: "/main",
+        path: "/",
         element: <MainPage />,
       },
       {
