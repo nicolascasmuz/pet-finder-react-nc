@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonComp } from "../components/ButtonComp";
 import { FormInputComp } from "../components/FormInputComp";
-import { getSHA256ofString } from "../../backend/lib/sha256";
+import { getSHA256ofString } from "../lib/sha256";
 import { useRecoilValue } from "recoil";
 import { useEditPass } from "../hooks/useEditPass";
 import { dataSelector } from "../atoms/data-atoms";
