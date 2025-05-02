@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonComp } from "../components/ButtonComp";
 import "./main-page.css";
-import picture01 from "../resources/picture-01.jpg";
+import picture01 from "../resources/picture-01";
 import { useLogOut } from "../hooks/useLogOut";
 import { Link } from "react-router-dom";
 
