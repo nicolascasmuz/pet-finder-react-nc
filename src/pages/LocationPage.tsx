@@ -24,10 +24,6 @@ export function LocationPage() {
 
   useEffect(() => {
     const success = (position) => {
-      console.log("geolocation position: ", {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      });
       setCoords({
         lat: position.coords.latitude,
         lng: position.coords.longitude,
