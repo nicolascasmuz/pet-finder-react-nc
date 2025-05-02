@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   useSetRecoilState,
@@ -33,38 +33,18 @@ function useSetProfile() {
     }
   }, [profileDataLoadable, navigate]);
 
-  async function setProfile(address: string, town: string) {
-    mapboxClient.geocodeForward(
-      `${address} ${town}`,
-      {
-        country: "ar",
-        autocomplete: true,
-        language: "es",
-      },
-      async function locationData(err, data, res) {
-        if (!err) {
-          const [lng, lat] = data.features[0].geometry.coordinates;
+  async function setProfile(coords, address, location) {
+    const setProfileData = {
+      email: stateData.email,
+      password: stateData.password,
+      address,
+      location,
+      lat: coords.lat,
+      lng: coords.lng,
+    };
 
-          const address = data.features[0].place_name_es.split(",")[0];
-
-          const location = data.features[0].place_name_es
-            .split(",")[1]
-            .slice(1);
-
-          const setProfileData = {
-            email: stateData.email,
-            password: stateData.password,
-            address,
-            location,
-            lat,
-            lng,
-          };
-
-          console.log("useSetProfile (setProfileData): ", setProfileData);
-          setProfileDataState(setProfileData);
-        }
-      }
-    );
+    console.log("useSetProfile (setProfileData): ", setProfileData);
+    setProfileDataState(setProfileData);
   }
 
   return setProfile;

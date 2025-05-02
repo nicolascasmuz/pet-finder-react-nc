@@ -53,3 +53,9 @@
   gap: 15px;
   margin: 15px 0;
 }
+.button-datos {
+  text-decoration: none;
+}
+.button-contraseña {
+  text-decoration: none;
+}

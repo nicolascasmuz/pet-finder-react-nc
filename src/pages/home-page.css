@@ -13,12 +13,18 @@
   margin: 40px 15px;
 }
 
+.button-01 {
+  text-decoration: none;
+}
+
 .button-02 {
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .button-03 {
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .map-container {

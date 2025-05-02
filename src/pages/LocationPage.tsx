@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ButtonComp } from "../components/ButtonComp";
 import { FormInputComp } from "../components/FormInputComp";
 import getLocationImg from "../resources/get-location_1@2x.png";
@@ -7,6 +7,7 @@ import { useSetProfile } from "../hooks/useSetProfile";
 
 export function LocationPage() {
   const setProfile = useSetProfile();
+  const [coords, setCoords] = useState(null);
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -15,11 +16,30 @@ export function LocationPage() {
     const townValue = e.target.town.value;
 
     try {
-      await setProfile(addressValue, townValue);
+      await setProfile(coords, addressValue, townValue);
     } catch (error) {
       console.error("LocationPage Error: ", error);
     }
   };
+
+  useEffect(() => {
+    const success = (position) => {
+      console.log("geolocation position: ", {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+      setCoords({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+    };
+
+    const error = (error) => {
+      console.log("geolocation error: ", error);
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error);
+  }, []);
 
   return (
     <div className="general-container">

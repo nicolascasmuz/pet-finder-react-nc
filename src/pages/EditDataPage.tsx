@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ButtonComp } from "../components/ButtonComp";
 import { FormInputComp } from "../components/FormInputComp";
 import { dataSelector } from "../atoms/data-atoms";
@@ -8,6 +8,7 @@ import "./edit-data-page.css";
 
 export function EditDataPage() {
   const editData = useEditData();
+  const [coords, setCoords] = useState(null);
   const userData = useRecoilValue(dataSelector);
 
   const [nickname, setNickname] = useState(userData.nickname);
@@ -25,6 +26,8 @@ export function EditDataPage() {
       email,
       address,
       location,
+      lat: coords.lat,
+      lng: coords.lng,
     };
 
     if (nickname !== "" && email !== "" && location !== "" && address !== "") {
@@ -35,6 +38,21 @@ export function EditDataPage() {
       }
     }
   };
+
+  useEffect(() => {
+    const success = (position) => {
+      setCoords({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+    };
+
+    const error = (error) => {
+      console.log("geolocation error: ", error);
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error);
+  }, []);
 
   return (
     <div className="general-container">
