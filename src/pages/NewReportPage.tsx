@@ -111,8 +111,7 @@ export function NewReportPage() {
         </p>
         <label className="details-label">
           OBSERVACIONES
-          <textarea className="details-input" name="det"></textarea>
-          <p className="details-required-field">Campo obligatorio</p>
+          <textarea className="details-input" name="det" required />
         </label>
         <ButtonComp
           className="button-report"

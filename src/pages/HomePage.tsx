@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ButtonComp } from "../components/ButtonComp";
-import pinMap from "../resources/pin-map.png";
 import { Link } from "react-router-dom";
 import { dataSelector } from "../atoms/data-atoms";
 import { useRecoilValue } from "recoil";
@@ -34,7 +33,6 @@ export function HomePage() {
               ",14,0.00,0.00/310x190@2x?access_token=pk.eyJ1Ijoibmljb2xhc2Nhc211eiIsImEiOiJjbGlmYjFjZTQwbXk3M2Zwa3VrdGtha2g1In0.HuBxvL_9t1URB93rFefxfg"
             }
           />
-          <img className="pin-map" src={pinMap} alt="test-map" />
         </div>
       </Link>
     </div>

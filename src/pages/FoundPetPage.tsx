@@ -2,9 +2,9 @@ import React from "react";
 import { ButtonComp } from "../components/ButtonComp";
 import "./found-pet-page.css";
 import { Link } from "react-router-dom";
-import foundPetPic from "../resources/found-pet.png";
+import foundPetPic from "../resources/found-pet.webp";
 
-export function FoundPetPage(props) {
+export function FoundPetPage() {
   return (
     <div className="general-container">
       <h1 className="found-pet-main-title">

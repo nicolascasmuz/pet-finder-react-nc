@@ -9,14 +9,9 @@ interface FormInputProps {
   placeholder?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   textContent?: string;
-  rfDisplay?: boolean;
-  mpDisplay?: boolean;
 }
 
-const FormInputComp = forwardRef(function FormInputComp(
-  props: FormInputProps,
-  ref: ForwardedRef<HTMLInputElement>
-) {
+function FormInputComp(props: FormInputProps) {
   return (
     <>
       <label className="form-input__label">
@@ -28,26 +23,18 @@ const FormInputComp = forwardRef(function FormInputComp(
           value={props.value}
           placeholder={props.placeholder}
           onChange={props.onChange}
-          ref={ref}
+          required
         />
       </label>
-      <p
-        className="mismatched-pass"
-        style={{ display: props.mpDisplay ? "block" : "none" }}
-      >
+      <p className="mismatched-pass">
         Las contraseñas no coinciden, inténtelo otra vez
       </p>
       <p className="new-user">Ya existe un usuario registrado con este email</p>
       <p className="wrong-data">El usuario o la contraseña son incorrectos</p>
       <p className="wrong-pass">Contraseña incorrecta</p>
-      <p
-        className="required-field"
-        style={{ display: props.rfDisplay ? "block" : "none" }}
-      >
-        Campo obligatorio
-      </p>
+      <p className="required-field">Campo obligatorio</p>
     </>
   );
-});
+}
 
 export { FormInputComp };
