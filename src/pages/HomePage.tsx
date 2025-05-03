@@ -33,6 +33,7 @@ export function HomePage() {
               ",14,0.00,0.00/310x190@2x?access_token=pk.eyJ1Ijoibmljb2xhc2Nhc211eiIsImEiOiJjbGlmYjFjZTQwbXk3M2Zwa3VrdGtha2g1In0.HuBxvL_9t1URB93rFefxfg"
             }
           />
+          <h2 className="text-overlay">Ver mapa de mascotas perdidas</h2>
         </div>
       </Link>
     </div>

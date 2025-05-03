@@ -1,11 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  useSetRecoilState,
-  useRecoilValue,
-  useRecoilValueLoadable,
-} from "recoil";
-import { dataAtom, dataSelector } from "../atoms/data-atoms";
+import { useSetRecoilState, useRecoilValueLoadable } from "recoil";
+import { dataAtom } from "../atoms/data-atoms";
 import { signinAtom, signinSelector } from "../atoms/sign-up-atoms";
 
 function useSignUp() {
@@ -13,29 +9,17 @@ function useSignUp() {
   const setAuthDataState = useSetRecoilState(signinAtom);
   const userDataLoadable = useRecoilValueLoadable(signinSelector);
   const setDataState = useSetRecoilState(dataAtom);
-  const stateData = useRecoilValue(dataSelector);
 
-  const emptyData: any = {
-    userId: "",
-    picURL: "",
-    nickname: "",
+  const data: any = {
     email: "",
     password: "",
-    address: "",
-    location: "",
-    lat: "",
-    lng: "",
-    newUser: "",
-    selectedPet: "",
-    petsByRadius: [],
-    myReportedPets: [],
   };
 
   useEffect(() => {
     if (userDataLoadable.state === "hasValue" && userDataLoadable.contents) {
-      emptyData.email = userDataLoadable.contents.emailPassValues.email;
-      emptyData.password = userDataLoadable.contents.emailPassValues.password;
-      setDataState(emptyData);
+      data.email = userDataLoadable.contents.emailPassValues.email;
+      data.password = userDataLoadable.contents.emailPassValues.password;
+      setDataState(data);
       navigate("/location");
     }
   }, [userDataLoadable, navigate]);

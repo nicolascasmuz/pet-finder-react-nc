@@ -19,11 +19,14 @@ function SignUpPage() {
 
     const emailValue = e.target.email.value;
     const passValue = e.target.pass.value;
+    const checkpassValue = e.target.checkpass.value;
 
-    try {
-      await signUp(emailValue, passValue);
-    } catch (error) {
-      console.error("Error al iniciar sesión: ", error);
+    if (passValue === checkpassValue) {
+      try {
+        await signUp(emailValue, passValue);
+      } catch (error) {
+        console.error("Error al iniciar sesión: ", error);
+      }
     }
   };
 
