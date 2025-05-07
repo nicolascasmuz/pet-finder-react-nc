@@ -1,59 +1,33 @@
 import { atom, selector } from "recoil";
 
+const emptyData = {
+  userId: "",
+  picURL: "",
+  nickname: "",
+  email: "",
+  password: "",
+  address: "",
+  location: "",
+  lat: "",
+  lng: "",
+  newUser: "",
+  selectedPet: "",
+  petsByRadius: [],
+  myReportedPets: [],
+};
+
 function loadInitialState() {
   try {
     const localData = localStorage.getItem("saved-state");
 
     if (!localData) {
-      return {
-        userId: "",
-        picURL: "",
-        nickname: "",
-        email: "",
-        password: "",
-        address: "",
-        location: "",
-        lat: "",
-        lng: "",
-        newUser: "",
-        selectedPet: {},
-        petsByRadius: [],
-        myReportedPets: [],
-      };
+      return emptyData;
     } else {
-      return {
-        userId: "",
-        picURL: "",
-        nickname: "",
-        email: "",
-        password: "",
-        address: "",
-        location: "",
-        lat: "",
-        lng: "",
-        newUser: "",
-        selectedPet: {},
-        petsByRadius: [],
-        myReportedPets: [],
-      };
+      return emptyData;
     }
   } catch (error) {
     console.error("Error al cargar el estado inicial de localStorage: ", error);
-    return {
-      userId: "",
-      picURL: "",
-      nickname: "",
-      email: "",
-      password: "",
-      address: "",
-      location: "",
-      lat: "",
-      lng: "",
-      newUser: "",
-      selectedPet: "",
-      petsByRadius: [],
-      myReportedPets: [],
-    };
+    return emptyData;
   }
 }
 
@@ -75,4 +49,4 @@ const dataSelector = selector({
   },
 });
 
-export { dataAtom, dataSelector };
+export { emptyData, dataAtom, dataSelector };

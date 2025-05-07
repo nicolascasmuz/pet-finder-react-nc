@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { ButtonComp } from "../components/ButtonComp";
 import { FormInputComp } from "../components/FormInputComp";
 import "./sign-up-page.css";
@@ -11,6 +11,8 @@ function SignUpPage() {
   useEffect(() => {
     logOut();
   }, []);
+
+  const [display, setDisplay] = useState("none");
 
   const signUp = useSignUp();
 
@@ -27,6 +29,8 @@ function SignUpPage() {
       } catch (error) {
         console.error("Error al iniciar sesión: ", error);
       }
+    } else {
+      setDisplay("block");
     }
   };
 
@@ -55,6 +59,9 @@ function SignUpPage() {
           name="checkpass"
           textContent="CONFIRMAR CONTRASEÑA"
         />
+        <span className="passwords-must-match" style={{ display }}>
+          Las contraseñas deben coincidir
+        </span>
         <p className="paragraph-02">
           ¿Ya tenés una cuenta?{" "}
           <Link to="/log-in" className="login-link">

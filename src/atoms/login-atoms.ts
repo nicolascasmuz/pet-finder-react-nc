@@ -22,10 +22,15 @@ const authSelector = selector({
             "Bearer " + emailPassValues.email + " " + emailPassValues.password,
         },
       });
-      const json = await response.json();
-      const data = json.profile;
 
-      return data;
+      if (response.status >= 200 && response.status < 300) {
+        const json = await response.json();
+        const data = json.profile;
+
+        return data;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
