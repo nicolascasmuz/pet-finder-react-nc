@@ -17,7 +17,7 @@ function useSelectedPet() {
   const missingPetsState = useSetRecoilState(missingPetsAtom);
   const setPetsByRadiusState = useSetRecoilState(petsByRadiusAtom);
   const missingPetsLoadable = useRecoilValueLoadable(missingPetsSelector);
-  const setDataState = useSetRecoilState(dataAtom);
+  const setDataState: any = useSetRecoilState(dataAtom);
   const stateData = useRecoilValue(dataSelector);
 
   const emptyMissingPetsAtom = {
