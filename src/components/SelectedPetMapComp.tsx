@@ -12,7 +12,7 @@ const MAPBOX_TOKEN =
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
 function SelectedPetMapComp() {
-  const userData = useRecoilValue(dataSelector);
+  const userData: any = useRecoilValue(dataSelector);
   const { deletePetsByRadius } = usePetsByRadius();
 
   useEffect(() => {
