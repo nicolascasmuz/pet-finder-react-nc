@@ -10,7 +10,7 @@ import { SentInfoComp } from "../components/SentInfoComp";
 import "./missing-pet-card-comp.css";
 
 function MissingPetCardComp(props) {
-  const userData = useRecoilValue(dataSelector);
+  const userData: any = useRecoilValue(dataSelector);
   const navigate = useNavigate();
   const { deleteSelectedPet } = useSelectedPet();
   const sendMail = useSendMail();
