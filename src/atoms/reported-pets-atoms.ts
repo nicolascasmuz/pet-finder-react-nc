@@ -12,10 +12,6 @@ const reportedPetsSelector = selector({
   key: "reported-pets-selector",
   get: async ({ get }) => {
     const reportedPetsValues = get(reportedPetsAtom);
-    console.log(
-      "reported-pets-atoms (reportedPetsValues): ",
-      reportedPetsValues
-    );
 
     if (reportedPetsValues.userId) {
       const response = await fetch(
@@ -28,7 +24,6 @@ const reportedPetsSelector = selector({
       );
 
       const json = await response.json();
-      console.log("reported-pets-atoms (json): ", json);
       return json;
     } else {
       return [];

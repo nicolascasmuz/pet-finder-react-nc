@@ -25,7 +25,9 @@ export function ReportedPetsPage() {
 
   if (userData.myReportedPets === undefined) {
     return (
-      <div className="loading-message">Cargando mascotas reportadas...</div>
+      <div className="general-container">
+        <div className="loading-message">Cargando mascotas reportadas...</div>
+      </div>
     );
   } else {
     return (

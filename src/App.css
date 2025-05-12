@@ -9,6 +9,7 @@ body {
 .app-container {
   height: 100vh;
   background: linear-gradient(#fafafa 50%, #8896e090);
+  overflow: auto;
 }
 
 .app-container.no-background {

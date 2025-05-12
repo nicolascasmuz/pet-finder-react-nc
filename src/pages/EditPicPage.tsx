@@ -4,6 +4,7 @@ import { dataSelector } from "../atoms/data-atoms";
 import { useRecoilValue } from "recoil";
 import { Dropzone } from "dropzone";
 import { useEditData } from "../hooks/useEditData";
+import addPicImg from "../resources/add-pic.webp";
 import "./edit-pic-page.css";
 
 export function EditPicPage() {
@@ -59,10 +60,15 @@ export function EditPicPage() {
     <div className="general-container">
       <h1 className="main-title">Cambiar foto</h1>
       <form className="modify-data-form dropzone" onSubmit={HandleSubmit}>
-        <center>
+        <center className="profile-pic-container">
+          <img
+            className="profile-pic"
+            src={userData.picURL}
+            alt="profile-pic"
+          />
           <img
             className="add-profile-pic"
-            src={userData.picURL}
+            src={addPicImg}
             alt="add-profile-pic"
           />
         </center>
